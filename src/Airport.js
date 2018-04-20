@@ -9,3 +9,7 @@ Airport.prototype.planes = function() {
 Airport.prototype.clearForLanding = function(plane) {
   this._planes.push(plane);
 };
+
+Airport.prototype.clearForTakeOff = function () {
+  this._planes.pop();
+};

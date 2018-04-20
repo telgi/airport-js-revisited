@@ -17,4 +17,11 @@ describe("Airport", function() {
       expect(airport.planes()).toEqual([plane]);
     });
   });
+
+  describe("Taking Off", function() {
+    it("should be able to get a plane to take off", function() {
+      airport.clearForTakeOff();
+      expect(airport.planes()).toEqual([]);
+    });
+  });
 });
