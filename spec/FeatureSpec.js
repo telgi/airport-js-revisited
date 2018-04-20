@@ -7,15 +7,17 @@ describe("Features", function() {
     plane = new Plane();
   });
 
-  describe("Landing", function() {
-    it("should be able to land a plane in an airport", function() {
+  describe("When conditions are normal", function() {
+    beforeEach(function() {
+      spyOn(Math, 'random').and.returnValue(0);
+    });
+
+    it("should land a plane in an airport", function() {
       plane.land(airport);
       expect(airport.planes()).toContain(plane);
     });
-  });
 
-  describe("Taking Off", function() {
-    it("should be able to get a plane to take off from an airport", function() {
+    it("should get a plane to take off from an airport", function() {
       plane.land(airport);
       plane.takeOff(airport);
       expect(airport.planes()).not.toContain(plane);
