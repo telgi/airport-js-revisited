@@ -10,6 +10,19 @@ To practice test driving JavaScript using Jasmine - especially the use of mockin
 
 `git clone git@github.com:telgi/airport-js-revisited.git`
 
+## Usage
+
+Open `SpecRunner.html` in a browser
+
+Open developer tools and use the console to create Airport and Plane objects:
+
+```
+var airport = new Airport();
+var plane = new Plane();
+
+airport.clearForLanding(plane);
+```
+
 ## Testing
 
 Run `open SpecRunner.html` to run Jasmine tests
