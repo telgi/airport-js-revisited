@@ -30,13 +30,18 @@ describe("Airport", function() {
   });
 
   describe("When conditions are stormy", function() {
-    beforeEach(function() {
+    it("should not land a plane", function() {
       weather.isStormy.and.returnValue(true);
-    });
-
-    it("should not land a plane when it's stormy", function() {
       expect(function() { airport.clearForLanding(plane) }).toThrowError('Cannot land during storm');
       expect(airport.planes()).toEqual([]);
+    });
+
+    it("should not let a plane take off", function() {
+      weather.isStormy.and.returnValue(false);
+      airport.clearForLanding(plane);
+      weather.isStormy.and.returnValue(true);
+      expect(function() { airport.clearForTakeOff() }).toThrowError('Cannot take off during storm');
+      expect(airport.planes()).toEqual([plane]);
     });
   });
 });

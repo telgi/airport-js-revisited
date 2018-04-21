@@ -16,5 +16,9 @@ Airport.prototype.clearForLanding = function(plane) {
 };
 
 Airport.prototype.clearForTakeOff = function () {
-  this._planes.pop();
+  if (this._weather.isStormy()) {
+    throw new Error('Cannot take off during storm');
+  } else {
+    this._planes.pop();
+  }
 };
