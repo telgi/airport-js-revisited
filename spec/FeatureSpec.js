@@ -22,6 +22,13 @@ describe("Features", function() {
       plane.takeOff(airport);
       expect(airport.planes()).not.toContain(plane);
     });
+
+    it("cannot land a plane if the airport is full", function() {
+      for (var i = 1; i <= 20; i++) {
+        plane.land(airport);
+      }
+      expect(function() { plane.land(airport) }).toThrowError('Cannot land - Airport is full');
+    });
   });
 
   describe("When conditions are stormy", function() {

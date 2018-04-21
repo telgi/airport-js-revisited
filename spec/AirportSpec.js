@@ -38,6 +38,13 @@ describe("Airport", function() {
       airport.clearForTakeOff();
       expect(airport.planes()).toEqual([]);
     });
+
+    it("cannot land a plane when capacity has been reached", function() {
+      for (var i = 1; i <= 20; i++) {
+        airport.clearForLanding(plane);
+      }
+      expect(function() { airport.clearForLanding(plane) }).toThrowError('Cannot land - Airport is full');
+    });
   });
 
   describe("When conditions are stormy", function() {

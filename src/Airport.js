@@ -15,6 +15,8 @@ Airport.prototype.capacity = function () {
 Airport.prototype.clearForLanding = function(plane) {
   if (this._weather.isStormy()) {
     throw new Error('Cannot land during storm');
+  } else if (this._isFull()) {
+    throw new Error('Cannot land - Airport is full');
   } else {
     this._planes.push(plane);
   }
@@ -26,4 +28,8 @@ Airport.prototype.clearForTakeOff = function () {
   } else {
     this._planes.pop();
   }
+};
+
+Airport.prototype._isFull = function () {
+  return (this._planes.length === this._capacity);
 };
