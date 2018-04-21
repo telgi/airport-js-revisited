@@ -50,4 +50,4 @@ I would like a default airport capacity that can be overridden as appropriate
 * Plane can't land if weather is stormy [x]
 * Plane can't take off if weather is stormy [x]
 * Plane can't land if airport is full []
-* Airport has a default capacity that can be changed when necessary []
+* Airport has a default capacity that can be changed when necessary [x]

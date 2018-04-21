@@ -9,8 +9,19 @@ describe("Airport", function() {
     airport = new Airport(weather);
   });
 
-  it("starts with no planes", function() {
-    expect(airport.planes()).toEqual([]);
+  describe("When a new airport is created", function() {
+    it("starts with no planes", function() {
+      expect(airport.planes()).toEqual([]);
+    });
+
+    it("has a default capacity of 20", function() {
+      expect(airport.capacity()).toEqual(20);
+    });
+
+    it("can have the capacity overridden", function() {
+      biggerAirport = new Airport(weather, 30);
+      expect(biggerAirport.capacity()).toEqual(30);
+    })
   });
 
   describe("When conditions are normal", function() {
